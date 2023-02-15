@@ -52,8 +52,7 @@ public class LL{
         }
         // else create newnode and loop till index-1 and link newnode
         Node prev = get(index);
-        Node newnode = new Node(val);
-        newnode.next = prev.next;
+        Node newnode = new Node(val, prev.next);
         prev.next = newnode;
         size++;
     }
