@@ -8,5 +8,5 @@ points covered
 * Create a Node
 * Add Node
 * Remove Node
-* Find Node in Linked List (returns value of a node)
-* Get Node (returns a node)
+* Find Node in Linked List (returns a node by Value)
+* Get Node (returns a node by Index)
