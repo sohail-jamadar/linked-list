@@ -14,12 +14,27 @@ public class LL{
         Node newnode = new Node(val);
         // if list is already empty then point head to newnode
         if(head == null){
+            // both head and tail point to newnode
             head = newnode;
+            tail = newnode;
             return;
         }
         // else insert a node at first
         newnode.next = head;
         head = newnode;
+    }
+
+    public void insertLast(int val){
+        // create new node
+        Node newnode = new Node(val);
+        // if tail is null call insertFirst()
+        if(tail == null){
+            insertFirst(val);
+            return;
+        }
+        // else insert node at last
+        tail.next = newnode;
+        tail = newnode;
     }
 
     public void print(){
