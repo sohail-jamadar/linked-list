@@ -61,13 +61,61 @@ public class LL{
         size++;
     }
 
+
+    public int deleteFirst(){
+        // if list is empty return -1
+        if(head == null){
+            return -1;
+        }
+        // else delete first node
+        int v = head.data;
+        head = head.next;
+        size--;
+        return v;
+    }
+
+    public int deleteLast(){
+        // if list is empty return -1
+        if(tail == null)
+            return -1;
+        // else iterate till last-1 node and cut connection to last node
+        int v = tail.data;
+        Node prev = head;
+        for(int i=1; i<size-1; i++){
+            prev = prev.next;
+        }
+        prev.next = null;
+        tail = prev;
+        size--;
+        return v;
+    }
+
+    public int delete(int index){
+        // if index is 0 call deleteFirst()
+        if(index == 0)
+            return deleteFirst();
+        // if index is (size-1) call deleteLast()
+        if(index == size-1)
+            return deleteLast();
+
+        // else iterate till given index and cut connection appropriately
+        Node prev = head;
+        for(int i=1; i<index; i++){
+            prev = prev.next;
+        }
+        int v = prev.next.data;
+        prev.next = prev.next.next;
+        size--;
+        return v;
+    }
+
     public void print(){
         Node temp = head;
         while(temp != null){
             System.out.print(temp.data+" -> ");
             temp = temp.next;
         }
-        System.out.print("END");
+        System.out.print("END\n");
     }
 
     private class Node{
