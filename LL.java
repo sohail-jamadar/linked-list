@@ -59,21 +59,22 @@ public class LL{
 
 
     public int deleteFirst(){
-        // if list is empty return -1
-        if(head == null){
-            return -1;
-        }
-        // else delete first node
+        // delete first node
         int v = head.data;
         head = head.next;
+        // check if head is NULL then set tail to NULL
+        if(head == null){
+            tail = null;
+        }
         size--;
         return v;
     }
 
     public int deleteLast(){
         // if list is empty return -1
-        if(tail == null)
-            return -1;
+        if(size <= 1){
+            return deleteFirst();
+        }
         // else iterate till last-1 node and cut connection to last node
         int v = tail.data;
         Node prev = get(size-1);
