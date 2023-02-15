@@ -108,6 +108,17 @@ public class LL{
         return temp;
     }
 
+    public Node find(int value){
+        Node temp = head;
+        while(temp != null){
+            if(temp.data == value){
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
+    }
+
     public void print(){
         Node temp = head;
         while(temp != null){
