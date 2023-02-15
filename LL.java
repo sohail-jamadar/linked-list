@@ -17,11 +17,13 @@ public class LL{
             // both head and tail point to newnode
             head = newnode;
             tail = newnode;
+            size++;
             return;
         }
         // else insert a node at first
         newnode.next = head;
         head = newnode;
+        size++;
     }
 
     public void insertLast(int val){
@@ -35,6 +37,7 @@ public class LL{
         // else insert node at last
         tail.next = newnode;
         tail = newnode;
+        size++;
     }
 
     public void print(){
