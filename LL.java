@@ -9,7 +9,6 @@ public class LL{
     }
 
     public void insertFirst(int val){
-
         // create a new node 
         Node newnode = new Node(val);
         // if list is already empty then point head to newnode
@@ -27,16 +26,38 @@ public class LL{
     }
 
     public void insertLast(int val){
-        // create new node
-        Node newnode = new Node(val);
         // if tail is null call insertFirst()
         if(tail == null){
             insertFirst(val);
             return;
         }
+        // create new node
+        Node newnode = new Node(val);
         // else insert node at last
         tail.next = newnode;
         tail = newnode;
+        size++;
+    }
+
+    public void insert(int val, int index){
+        // if index is 0 then call insertFirst()
+        if(index == 0){
+            insertFirst(val);
+            return;
+        }
+        // if index is size-1 then call insertLast()
+        if(index == (size-1)){
+            insertLast(val);
+            return;
+        }
+        // else create newnode and loop till index-1 and link newnode
+        Node prev = head;
+        for(int i=1; i<index; i++){
+            prev = prev.next;
+        }
+        Node newnode = new Node(val);
+        newnode.next = prev.next;
+        prev.next = newnode;
         size++;
     }
 

@@ -8,6 +8,7 @@ class Main{
         l.insertFirst(3);
         l.insertLast(4);
         l.insertLast(5);
+        l.insert(7, 2);
         l.print();
     }
 }
