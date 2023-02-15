@@ -51,10 +51,7 @@ public class LL{
             return;
         }
         // else create newnode and loop till index-1 and link newnode
-        Node prev = head;
-        for(int i=1; i<index; i++){
-            prev = prev.next;
-        }
+        Node prev = get(index);
         Node newnode = new Node(val);
         newnode.next = prev.next;
         prev.next = newnode;
@@ -80,10 +77,7 @@ public class LL{
             return -1;
         // else iterate till last-1 node and cut connection to last node
         int v = tail.data;
-        Node prev = head;
-        for(int i=1; i<size-1; i++){
-            prev = prev.next;
-        }
+        Node prev = get(size-1);
         prev.next = null;
         tail = prev;
         size--;
@@ -99,14 +93,19 @@ public class LL{
             return deleteLast();
 
         // else iterate till given index and cut connection appropriately
-        Node prev = head;
-        for(int i=1; i<index; i++){
-            prev = prev.next;
-        }
+        Node prev = get(index);
         int v = prev.next.data;
         prev.next = prev.next.next;
         size--;
         return v;
+    }
+
+    public Node get(int index){
+        Node temp = head;
+        for(int i=1; i<index; i++){
+            temp = temp.next;
+        }
+        return temp;
     }
 
     public void print(){
